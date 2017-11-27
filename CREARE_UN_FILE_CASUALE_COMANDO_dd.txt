@@ -1,0 +1,16 @@
+-------------- CREARE UN FILE CASUALE O UN FILE VUOTO DI DIMENSIONE PREFISSATA ---------------------
+
+FILE DI TESTO VUOTO DIMENSIONE 1024 BYTE = 1K
+
+dd if=/dev/zero of=test.txt bs=1024 count=1
+
+OPPURE FILE DI IMMAGINE VUOTO DIMENSIONE 1K
+
+dd if=/dev/zero of=test.img bs=1K count=1
+
+CAMBIANDO /dev/zero con /dev/urandom SI OTTIENE UN FILE DI DIMENSIONE STABILITA CONTENTENTE VALORI RANDOM
+CAMBIANDO bs o count SI POSSONO OTTENERE DIMENSIONI DIFFERENTI ESEMPIO:
+bs=1M count=1
+bs=1G count=1
+bs=64M count=16 ---> 1G
+bs=64K count=16 ---> 1M

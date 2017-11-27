@@ -1,0 +1,17 @@
+------------ CAPIRE CHE DISTRO STO USANDO --------------
+
+uname -a ------> SCOPRO IL KERNEL LINUX CHE STO USANDO E ALTRE INFORMAZIONI DI SISTEMA, ESEMPIO:
+
+	Linux arciere1 4.13.12-1-ARCH #1 SMP PREEMPT Wed Nov 8 11:54:06 CET 2017 x86_64 GNU/Linux
+
+
+cat /etc/*-release --> LEGGO TUTTI I FILE CHE TERMINANO CON -release E RICAVO INFORMAZIONI SULLA DISTRO, ESEMPIO:
+
+	NAME="Arch Linux"
+	PRETTY_NAME="Arch Linux"
+	ID=arch
+	ID_LIKE=archlinux
+	ANSI_COLOR="0;36"
+	HOME_URL="https://www.archlinux.org/"
+	SUPPORT_URL="https://bbs.archlinux.org/"
+	BUG_REPORT_URL="https://bugs.archlinux.org/"

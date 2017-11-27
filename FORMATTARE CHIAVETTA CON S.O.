@@ -1,0 +1,10 @@
+---- FORMATTARE CHIAVETTA CON S.O. --------
+#creo partizione con fdisk
+ fdisk /dev/sdx
+ creo partizione sdx1
+
+#smonto
+ umount /dev/sdx
+
+#creo filesystem 
+ sudo mkfs.fat -F 32 /dev/sdx1

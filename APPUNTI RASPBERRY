@@ -1,0 +1,5 @@
+------------ APPUNTI RASPBERRY -------------
+per accedere in ssh da remoto dopo aver copiato con dd l'immagine del s.o.
+creare un file nominato ssh nella partizione boot della scheda sd
+cd /run/media/fabcol/boot/
+touch ssh

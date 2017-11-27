@@ -1,0 +1,3 @@
+----------------- SCARICARE SOLO AUDIO CON YOUTUBE-DL DA YOUTUBE E SIMILI----------------------------
+
+youtube-dl --extract-audio --audio-format mp3 urlDelVideoDaScaricare

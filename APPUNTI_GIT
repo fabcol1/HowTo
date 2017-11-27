@@ -1,0 +1,59 @@
+--------------- GIT -------------------
+
+---------CREARE o CLONARE REPOSITORY + SSH---------------
+
+configurare git
+$ git config --global user.name  "John Doe"
+$ git config --global user.email "johndoe@foobar.com"
+
+se vuoi clonare passa a 4 :
+1 creare repository su github ( vuoto )
+2 creare progetto con eclipse
+3 muoversi nella cartella del progetto e digitare -->   git init
+
+4 generare chiave ssh:
+
+	ssh-keygen -t rsa -b 4096 -C "your_email@example.com"
+
+5 copiare contenuto chiave publica generata nell'account su github.
+
+6 testare chiave ssh:
+	
+	ssh -T git@github.com
+
+se vuoi clonare con ssh (devi essere aggiunto nei collaboratori al progetto sul sito):
+clona repository con 
+git clone git@github.com:username/your-repository.git
+
+7 aggiungere remote repository
+	
+	git remote add origin git@github.com:username/your-repository.git
+
+	oppure
+
+	git remote set-url origin git@github.com:username/your-repository.git
+
+8 git add .
+9 git commit -m "Initial commit"
+10 git push origin master
+
+
+--------.gitignore FILES------------------
+
+PER IGNORARE TUTTI I FILE DELLA CARTELLA bin
+
+CREARE UN FILE NOMINATO .gitignore NELLA CARTELLA DEL PROGETTO
+
+touch .gitignore
+
+E SCRIVERCI DENTRO 
+
+bin/
+
+SE SI HA GIÀ LA CARTELLA bin NEL PROGETTO "GOVERNATO" DA GIT
+ALLORA È NECESSARIO RIMUOVERE LA CARTELLA DAL CONTROLLO DI GIT
+QUINDI DIGITARE
+
+git rm -r --cached bin 
+
+CHE RIMUOVE -r --> RICORSIVAMENTE --cached --> SOLO DALL'INDICIZZAZIONE LA CARTELLA O IL FILE INDICATO.

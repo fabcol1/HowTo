@@ -1,0 +1,8 @@
+--------------- CONVERTIRE BITRATE CON FFMPEG ----------------------
+
+ffmpeg -i nomefileinput.mp3 -b:a 256K nomefileoutput.mp3
+
+-i sta per input
+-b:a permette di modificare i bitrate del file audio
+puoi usare abbreviazioni come K Kbit M Mbit G Gbit
+

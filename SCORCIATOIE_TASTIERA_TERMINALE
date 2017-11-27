@@ -1,0 +1,15 @@
+SCORCIATOIE TASTIERA TERMINALE 
+
+C-r ricerca incrementale nella history.
+C-a spostamento a inizio riga.
+C-e spostamento a fine riga.
+C-u cancellazione da posizione corrente a inizio riga.
+C-k cancellazione da posizione corrente a fine riga.
+C-y inserisce l’ultimo testo cancellato.
+M-b spostamento indietro di una parola.
+M-f spostamento avanti di una parola.
+C-l ripulitura e posizionamento in testa allo schermo.
+Tab esegue l’autocompletamento del testo corrente.
+
+C --> CONTROL
+M --> ALT

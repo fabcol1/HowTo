@@ -1,0 +1,11 @@
+------ FARE BACKUP DI UNA CHIAVETTA COME .img SALVANDO ANCHE LE PARTIZIONI --------------------------------
+
+dd if=/dev/sdX of=sdcard.img --PER SALVARE IL CONTENUTO
+dd if=sdcard.img of=/dev/sdX --PER RIPRISTINARE IL CONTENUTO 
+
+SE VOGLIAMO ANALIZZARE LO STATO DELL'ELABORAZIONE:
+-MODO 1:
+dd if=/dev/sdX | pv | of=sdcard.img --PIPE IN COMANDO pv
+-MODO 2:
+dd if=/dev/sdX of=sdcard.img status=progress
+

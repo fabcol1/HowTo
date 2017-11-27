@@ -1,0 +1,44 @@
+---------- GESTIONE UTENTI ----------------
+
+CREAZIONE UTENTE:
+
+useradd nome -m -G gruppi.aggiuntivi -s /bin/bash 
+	
+	-m -> crea directory home
+	-G -> aggiungi i gruppi seguenti come gruppi secondari (inoltre crea il gruppo primario con lo stesso nome del utente)
+	-s -> shell da eseguire quando l'user logga
+
+useradd nome -m -g gruppo -s /bin/bash -> si associa un gruppo primario specifico all'utente
+
+
+CAMBIO GRUPPO PRIMARIO:
+
+usermod -g gruppo.primario utente
+
+CAMBIO/ASSEGNO GRUPPI SECONDARI:
+
+usermod -a -G gruppi.secondari utente -> -a mantieni i gruppi secondari già associati
+
+RIMUOVERE UN UTENTE DA UN GRUPPO 
+
+gpasswd -d user gruppo
+
+AGGIUNGERE UN UTENTE AD UN GRUPPO
+
+gpasswd -a user gruppo
+
+CANCELLARE UN UTENTE E LA SUA HOME DIRECTORY
+
+userdel -r user
+
+CANCELLARE UN GRUPPO
+
+groupdel group
+
+CREARE UN GRUPPO 
+
+groupadd group
+
+CREA UN UTENTE DI NOME MARIO CON UID 1011 GRUPPO PRIMARIO mario GRUPPO SECONDARIO sudo E BASH /bin/bash :
+
+pi@raspberrypi:~ $ useradd mario -u 1011 -G sudo -m -s /bin/bash 

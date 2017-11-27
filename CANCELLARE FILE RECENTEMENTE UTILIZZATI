@@ -1,0 +1,19 @@
+------CANCELLARE FILE RECENTEMENTE UTILIZZATI-------
+
+Sotto la cartella /home/(user)/.local/share/ si trova il file recently-used.xbel
+
+file in formato xml che descrive i file recentemente utilizzati.
+
+E' sufficiente cancellarlo.
+
+rm recently-used.xbel
+
+SE NON DOVESSI TROVARLO CERCA CON FIND UN FILE SIMILE 
+
+( RICERCA SU TUTTO IL PC RICORSIVAMENTE FILE CONTENENTE NEL NOME LA PAROLA recently IN MANIERA CASE INSENSITIVE (-iname))
+sudo find / -iname *recently*  
+
+oppure meglio 
+
+( RICERCA NELLA HOME DELL'UTENTE RICORSIVAMENTE UN FILE CONTENENTE NEL NOME LA PAROLA recently IN MANIERA CASE INSENSITIVE (-iname))
+find ~ -iname *recently*

@@ -1,0 +1,38 @@
+------------- SIMBOLO UNICODE IN CODICE PER BASH PROMPT PS1-------------------------
+
+TROVARE SIMBOLO CHE CI PIACE ESEMPIO ∴ → ☿ ★ ✓ ✗
+
+ESEGUIRE IL COMANDO 
+
+echo ∴ | hexdump -b
+
+-b mostra il risultato byte per byte in ottale
+
+SI RICORDA CHE hexdump OGNI RIGA VALE 32 BIT
+
+OTTALE -> OGNI 3 CIFRE SONO 8 BIT + uno 0 iniziale utilizzato per la codifica
+
+342 --> 011 100 001
+210 --> 010 001 000
+265 --> 010 110 101
+
+RISULTATO CON -b
+
+0000000 342 210 264 012                                                
+0000004
+
+-c mantiene il carattere quando possibile
+
+0000000 342 210 264  \n                                                
+0000004
+
+
+INSERIRE NEL PROMPT UNA VARIBILE ESEMPIO
+
+TRE_PUNTINI="\342\210\264"
+
+ED UTILIZZARLA A PIACERE.
+
+PER UN ESEMPIO RAPIDO
+
+export PS1="\342\210\264"
