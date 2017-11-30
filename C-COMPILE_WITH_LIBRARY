@@ -1,0 +1,9 @@
+-----------C COMPILE WITH LIBRARY---------
+
+gcc -o NAMEOUTPUT.o NAMEINPUT.c -lm
+
+-l -> link a library
+-m -> link math library
+
+-o -> Specify output name
+
