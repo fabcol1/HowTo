@@ -7,3 +7,7 @@ gcc -o NAMEOUTPUT.o NAMEINPUT.c -lm
 
 -o -> Specify output name
 
+
+see dynamic linked libraries
+
+ldd NAMEOUTPUT.o
