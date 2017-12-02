@@ -1,0 +1,9 @@
+--------------- DISABLE X APPLICATION BEEP--------------
+
+Disable warning beep. example when you press Ctrl-S repeatedly
+
+xset b off
+
+Enable :
+
+xset b on
