@@ -1,0 +1,8 @@
+------------- CONNECTING TO REMOTE SSH WITH FULL DOMAIN NAME AND SETTING A DIFFERENT CIPHER----------
+
+Unable to negotiate with ..............: no matching cipher found. Their offer: aes128-cbc,3des-cbc,blowfish-cbc,cast128-cbc,arcfour,aes192-cbc,aes256-cbc,rijndael-cbc@lysator.liu.se
+
+--> FOR RESOLVE THIS PROBLEM TRY:
+
+ssh ip_addressORdomain -p portNumber -c aes128-cbc
+
