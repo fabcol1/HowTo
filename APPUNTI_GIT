@@ -57,3 +57,7 @@ QUINDI DIGITARE
 git rm -r --cached bin 
 
 CHE RIMUOVE -r --> RICORSIVAMENTE --cached --> SOLO DALL'INDICIZZAZIONE LA CARTELLA O IL FILE INDICATO.
+
+-----------UNDO GIT INIT-----------------------------
+just delete .git 
+rm -rf .git
