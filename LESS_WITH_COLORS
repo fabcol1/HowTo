@@ -1,0 +1,21 @@
+---------PRINT LESS WITH COLORS------------
+
+example with dmesg
+
+dmesg --color=always | less -R
+
+	-r or --raw-control-chars
+
+	Causes "raw" control characters to be displayed. (...)
+
+	-R or --RAW-CONTROL-CHARS
+
+	Like -r, but only ANSI "color" escape sequences are output in "raw" form. (...)
+
+
+	--color=always for the colors
+
+
+example with ls
+
+ls -l --color=always | less -R

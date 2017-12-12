@@ -1,0 +1,7 @@
+------------DISABLE SPEAKER AT STARTUP-----------------
+
+cd /etc/modprobe.d/
+sudo touch nobeep.conf
+sudo nano nobeep.conf 
+		|
+		'-----> blacklist pcspkr
