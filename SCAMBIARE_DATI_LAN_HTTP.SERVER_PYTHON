@@ -1,0 +1,22 @@
+--------------- SCAMBIARE DATI IN LAN CON HTTP.SERVER PYTHON -------------------
+
+aprire la directory che si vuole condividere
+eseguire il comando:
+
+python3 -m http.server
+
+che avvia il modulo (-m) http.server sulla porta di default 8000
+
+scovare il proprio ip in lan 
+
+ip a
+
+oppure 
+
+ifconfig
+
+esempio 192.168.1.200
+
+digitarlo da un altro computer in lan sulla barra indirizzi del browser e si potrà scaricare i dati contenuti nella directory del computer che ha avviato il servizio.
+
+esempio nella barra del browser digitare 192.168.1.200:8000
