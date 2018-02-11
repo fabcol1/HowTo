@@ -61,3 +61,6 @@ CHE RIMUOVE -r --> RICORSIVAMENTE --cached --> SOLO DALL'INDICIZZAZIONE LA CARTE
 -----------UNDO GIT INIT-----------------------------
 just delete .git 
 rm -rf .git
+
+--------------------- SHOW GIT CONFIG -----------------------
+git config --list
