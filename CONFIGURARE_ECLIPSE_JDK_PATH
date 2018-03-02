@@ -1,0 +1,32 @@
+------------------- CONFIGURARE ECLIPSE JDK PATH -------------------------------
+posizionarsi nella directory di eclipse
+cd /opt/eclispe
+
+aprire eclipse.ini 
+sudo nano eclipse.ini
+<!--
+		-startup
+		plugins/org.eclipse.equinox.launcher_1.4.0.v20161219-1356.jar
+		--launcher.library
+		plugins/org.eclipse.equinox.launcher.gtk.linux.x86_64_1.1.551.v20171108-1834
+		-product
+		org.eclipse.epp.package.jee.product
+		-showsplash
+		org.eclipse.epp.package.common
+		--launcher.defaultAction
+		openFile
+		--launcher.defaultAction
+		openFile
+		--launcher.appendVmargs
+		-vmargs
+		-Dosgi.requiredJavaVersion=1.8
+-->
+
+prima di -vmarg
+
+inserire
+
+		-vm 
+		/opt/jdk/bin/java
+
+con il percorso di dove si trova l'eseguibile java
