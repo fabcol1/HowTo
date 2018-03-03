@@ -1,0 +1,21 @@
+--------------- NMAP SCANSIONE RETE LOCALE PER SCOPRIRE INDIRIZZI IP ----------------------------
+
+SOLO PING 
+
+nmap -sP 192.168.1.* --> scansiona tramite ping tutta la rete locale e ti dice chi è connesso
+
+✓ arciere1 ~ $ nmap -sP 192.168.1.*
+
+Starting Nmap 7.60 ( https://nmap.org ) at 2018-03-03 10:27 CET
+Nmap scan report for modemtim (192.168.1.1)
+Host is up (0.0086s latency).
+Nmap scan report for cloud-ibox-3 (192.168.1.2)
+Host is up (0.0059s latency).
+Nmap scan report for arciere1 (192.168.1.4)
+Host is up (0.00014s latency).
+Nmap done: 256 IP addresses (3 hosts up) scanned in 2.51 seconds
+
+
+PER SCANSIONE PORTE OMETTERE LE OPZIONI DI SCANSIONE PING -sP 
+
+nmap 192.168.1.*

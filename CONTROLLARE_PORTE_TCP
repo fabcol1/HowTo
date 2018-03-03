@@ -1,0 +1,24 @@
+------------------ CONTROLLARE PORTE TCP CON SERVIZI CON NETSTAT ---------------------------------
+
+sudo netstat -tlnp
+
+
+-t --> porte TCP
+-l --> porte in ascolto listening
+-n --> non risolvere i servizi con il loro nome ma mostra il numero della porta , esempio ssh:22
+-p --> (necessario sudo) mostra anche il PID del servizio
+
+esempio:
+
+	✓ arciere1 ~ $ netstat -lnt
+	Active Internet connections (only servers)
+	Proto Recv-Q Send-Q Local Address           Foreign Address         State      
+	tcp6       0      0 :::3306                 :::*                    LISTEN     
+	✓ arciere1 ~ $ sudo netstat -lntp
+	Active Internet connections (only servers)
+	Proto Recv-Q Send-Q Local Address           Foreign Address         State       PID/Program name    
+	tcp6       0      0 :::3306                 :::*                    LISTEN      24686/mysqld  
+	✓ arciere1 ~ $ netstat -lt
+	Active Internet connections (only servers)
+	Proto Recv-Q Send-Q Local Address           Foreign Address         State      
+	tcp6       0      0 [::]:mysql              [::]:*                  LISTEN    
