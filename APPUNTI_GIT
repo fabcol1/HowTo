@@ -64,3 +64,18 @@ rm -rf .git
 
 --------------------- SHOW GIT CONFIG -----------------------
 git config --list
+
+----------------------- ELIMINARE UNA CONFIG ---------------
+git config --global --unset user.email
+
+
+--------------- ERRORI COMUNI: ---------------------------
+
+git: fatal: I don't handle protocol '​​http'
+
+I copied and pasted the whole line git clone http://....
+
+The character between git clone and http://... looks like a space, but it is a special Unicode character!
+
+After removing this character, and entering a real space, it worked!
+
