@@ -69,6 +69,18 @@ git config --list
 git config --global --unset user.email
 
 
+
+--------------- MULTIPLE REPOSITORY STESSO PC ----------------
+
+impostare le configurazioni solo localmente sul singolo progetto
+quindi senza --global
+
+git config --global --unset user.email
+git config --global --unset user.name
+git config user.name  "John Doe"
+git config user.email "johndoe@foobar.com"
+
+
 --------------- ERRORI COMUNI: ---------------------------
 
 git: fatal: I don't handle protocol '​​http'
