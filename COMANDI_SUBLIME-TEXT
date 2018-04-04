@@ -1,0 +1,48 @@
+############ COMANDI SUBLIME-TEXT ##################
+
+APRIRE LA COMMAND PALETTE -> ctrl + shift + P
+
+INSTALLARE NUOVI PACKAGE: 
+	-> APRIRE COMMAND PALETTE E CARICARE Package Controll: Install Package
+
+INSTALLARE emmet
+	-> INSTALLARE NUOVI PACKAGE E CERCARE Emmet
+
+	Emmet comandi utili ->
+		 autocompletamento con tab...
+		 html:5 + tab -> GENERA PAGINA index HTML5
+
+
+INSTALLARE sidebarenchanted PER POTER FARE COPIA E INCOLLA DI FILE NELLA SIDEBAR
+
+
+SELEZIONARE PAROLE 
+
+	CTRL + D
+	CTRL + D --> NEXT
+	CTRL + K AND CTRL + D --> SKIP 
+
+SELEZIONARE PIÙ LINEE
+	Mouse:
+	Right Mouse Button + Shift
+
+	Keyboard:
+	Ctrl + Alt + Up
+	Ctrl + Alt + Down
+	(PER ATTIVARE QUESTO SU ARCH LINUX CON CINNAMON HO DOVUTO: 
+
+		CAMBIARE SHORTCUT DI EXPO E DI SCALE SOTTO PREFERENZE>TASTIERA>SCORCIATOIE>GENERALI
+
+		APRIRE DAL MENU DI SUBLIMETEXT Preferences > Key Binding > ed incollare
+	
+		{ "keys": ["alt+ctrl+up"], "command": "select_lines", "args": {"forward": false} },
+		{ "keys": ["alt+ctrl+down"], "command": "select_lines", "args": {"forward": true} }
+
+		NELLA PARTE RELATIVA ALLE PERSONALIZZAZIONE DELL'UTENTE...
+
+		DOPO DI CHE RIAVVIARE SUBLIME TEXT!
+
+	)
+
+
+	
