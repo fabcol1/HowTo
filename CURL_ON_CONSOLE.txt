@@ -1,0 +1,6 @@
+----------- RINDIRIZZARE RISULTATO CURL SULLA CONSOLE ---------------
+
+
+add the -s (silent) option to remove the progress meter, then redirect stderr to stdout to get verbose output on the same fd as the response body
+
+curl -vs www.google.it 2>&1 | less
