@@ -53,3 +53,57 @@ CON ctrl-C SI ESCE...
 --------- PULIRE CONSOLE CMD --------------
 
 COMANDO DA USARE: cls
+
+
+---------- TORNARE ALLA HOME DIRECTORY -----------
+
+cd %USERPROFILE%
+
+---------- SPOSTARSI NELLA ROOT --------------
+cd C:\
+
+oppure
+
+cd /
+
+--------- DIFFERENZE TRA DUE FILE IN WINDOWS -----------------
+
+fc file1.txt file2.txt
+
+	esempio di output: 
+
+	***** list.txt
+	.accdw=Access.WebApplicationReference.16
+	.accft=Access.ACCFTFile.16
+	.accountpicture-ms=accountpicturefile
+	***** LIST2.TXT
+	.accdw=Access.WebApplicationReference.16
+	ciaoooooo
+	.accountpicture-ms=accountpicturefile
+	*****
+
+--------- CANCELLARE DIRECTORY CMD ---------------------
+rd nomeOppurePathDirectory
+
+--------- COPIARE DIRECTORY ----------------------------
+xcopy nomeOppurePathDirectorySorgente nomeOppurePathDirectoryDestinazione
+
+-------- COMMENTI --------------------------------------
+Se una linea segue :: è un commento
+Se una linea segue Rem è un commento
+
+--------- RINDIRIZZARE L'OUTPUT IN UN ALTRO COMANDO LO SI FA CON 	|
+--------- RINDIRIZZARE L'OUTPUT IN UN FILE LO SI FA CON 			>
+
+--------- PARAMETRO IN INGRESSO ELIMINANDO QUOTES ---------------------
+%~1
+
+%1 is the first argument form the invoking command line.
+If the passed argument has quotes around it, %1 includes the quotes.
+Where as, %~1 provides the argument value with quotes removed.
+
+--------- TILDE ~ SU WINDOWS ---------------------------------
+E' POSSIBILE FARLA TENENDO PREMUTO 
+	alt 
+E DIGITANDO DA TASTIERINO NUMERICO CON BLOCK NUM ATTIVO 
+	0126
