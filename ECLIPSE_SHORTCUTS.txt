@@ -1,0 +1,16 @@
+---------------- ECLIPSE SHORTCUTS -----------------
+
+alt + freccia ---> spostare (scorri) linea su/giu
+
+ctrl + alt + freccia ---> supplicare linea
+
+alt + L ---> vai alla linea
+
+ctrl + O ---> cerca metodo o risorsa nella classe
+ctrl + T ---> ricerca gerarchia
+
+ctrl+shift+R ---> cerca in tutte le risorse ( in tutti i progetti )
+ctrl+shift+T ---> cerca in tutte le risorse per tipo ( in tutti i progetti )
+
+
+ctrl + shift + I --> watch in debug
