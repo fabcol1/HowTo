@@ -39,6 +39,8 @@ ij> insert into customer values (3, 'Robin', 'Riou');
 
 SELECT:
 
+ij> show tables;
+
 ij> select count(*) from customer;
 1
 -----------
