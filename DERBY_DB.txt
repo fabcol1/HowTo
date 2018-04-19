@@ -1,0 +1,55 @@
+------ DERBY DB --------------
+
+INSTALLAZIONE : http://db.apache.org/
+
+CREARE VARIABILE D'AMBIENTE: DERBY_HOME 
+	-> PUNTA ALLA DIRECTORY DOVE SI TROVA DERBY ESEMPIO: C:\Program Files\DerbyDB\db-derby-10.14.1.0-bin
+AGGIUNGERE VARIABILE D'AMBIENTE ALLA PATH 
+	-> %PATH%;%DERBY_HOME%\bin 
+
+
+AVVIARE 
+	->  $DERBY_HOME/bin/startNetworkServer
+
+
+UNA VOLTA AVVIATO SI PUò INTERAGIRE CON DERBYDB TRAMITE LO SCRIPT ij LOCALIZZATO SEMPRE IN bin 
+
+ 	-> DIGITARE ij
+
+CREARE IL DB e CONNETTERCISI... : 
+
+N.B. OGNI ISTRUZIONE DEVE TERMINARE CON ; 
+
+ij> connect 'jdbc:derby://localhost:1527/myfirstderbydb;create=true';
+
+CREARE TABELLE SUL DB :
+
+ij> create table customer (custId int primary key, firstname varchar(20), lastname varchar(20));
+
+GUARDARE LA TABELLA:
+
+ij> describe customer
+
+INSERT NELLA TABELLA:
+
+ij> insert into customer values (1, 'Fred', 'Chene');
+ij> insert into customer values (2, 'Sylvain', 'Verin');
+ij> insert into customer values (3, 'Robin', 'Riou');
+
+
+SELECT:
+
+ij> select count(*) from customer;
+1
+-----------
+3
+ij> select * from customer where custid=3;
+CUSTID |FIRSTNAME |LASTNAME
+-----------------------------------------------------
+3 |Robin |Riou
+ij> exit;
+
+DDL
+ DDL of the created table, you can exit ij and run dblook against the Chapter01DB database
+
+ dblook -d 'jdbc:derby://localhost:1527/myfirstderbydb'

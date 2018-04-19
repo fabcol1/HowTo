@@ -1,0 +1,9 @@
+------------- CARATTERI BRUTTI DA TASTIERA WINDOWS -----------------
+
+TIENI PREMUTO ALT code 96 corresponds to `
+
+TIENI PREMUTO ALT code 123 corresponds to {
+ 
+TIENI PREMUTO ALT code 125 corresponds to }
+ 
+TIENI PREMUTO ALT code 126 corresponds to ~
