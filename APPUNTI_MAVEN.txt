@@ -1,0 +1,168 @@
+---------------- MAVEN ------------------------------------------
+
+artifact-id -> nome progetto
+group-id	-> gruppo del progetto
+
+----- CARTELLE PREDEFINITE -----------
+
+src/main/java --------> classi applicazione
+src/main/resources ---> risorse dell'applicazione
+
+src/test/java --------> classi per il test
+src/test/resources ---> risorse per il test
+
+---------------------------------------
+
+pom.xml --------------> file di configurazione progetto maven
+
+PER BUILDARE CON MAVEN .... LOCALIZZARSI NELLA CARTELLA CHE CONTIENE IL FILE pom.xml DA RIGA DI COMANDO
+
+per utilizzare un plug-in maven la sintassi è :
+	 mvn nome-plugin:nome-goal	(goal è lo specifico compito eseguito dal plugin...)
+
+
+per leggere i goal di un plugin si può digitare nome-plugin:help
+
+-------PLUGIN COMPILER --------------------
+
+esempio
+	mvn compiler:help
+
+	<<This plugin has 3 goals:
+
+	compiler:compile
+	  Compiles application sources
+	
+	compiler:help
+	  Display help information on maven-compiler-plugin.
+	  Call mvn compiler:help -Ddetail=true -Dgoal=<goal-name> to display parameter
+	  details.
+	
+	compiler:testCompile
+	  Compiles application test sources.>>
+
+
+il plugin compiler è utilizzato per compiare sorgente maven!
+
+quindi per compilare usiamo il goal :compile e digitiamo
+
+mvn compiler:compile
+
+--> la compilazione crea una cartella chiamata target che contiene i file class e le risorse.
+
+---------- PLUGIN JAR ------------------------------------
+
+plugin per la compilazione e package in .jar 
+
+mvn jar:help
+mvn jar:jar
+
+---------- MVN PACKAGE -------------------
+ mvn package
+
+[INFO] Scanning for projects...
+[INFO] 
+[INFO] ------------------------------------------------------------------------
+[INFO] Building Archetype - maven.test 0.0.1-SNAPSHOT
+[INFO] ------------------------------------------------------------------------
+[INFO] 
+[INFO] --- maven-resources-plugin:2.6:resources (default-resources) @ maven.test ---
+[INFO] --- maven-compiler-plugin:3.1:compile (default-compile) @ maven.test ---
+[INFO] --- maven-resources-plugin:2.6:testResources (default-testResources) @ maven.test ---
+[INFO] --- maven-compiler-plugin:3.1:testCompile (default-testCompile) @ maven.test ---
+[INFO] --- maven-surefire-plugin:2.12.4:test (default-test) @ maven.test ---
+[INFO] --- maven-jar-plugin:2.4:jar (default-jar) @ maven.test ---
+
+QUESTO COMANDO ASSIMILA IN UNA SOLA ISTRUZIONE DIVERSI PLUGIN MAVEN
+
+compilazione - test(surefire-plugin) - jar
+
+package è una fase del BUILD LIFECYCLE e comprende questi passi
+
+-------------------PRINCIPALI BUILD LIFECYCLE  ----------------------------
+
+LISTA PRINCIPALI:
+https://maven.apache.org/guides/introduction/introduction-to-the-lifecycle.html
+
+LISTA COMPLETA:
+https://maven.apache.org/guides/introduction/introduction-to-the-lifecycle.html#Lifecycle_Reference
+
+validate - validate the project is correct and all necessary information is available
+
+compile - compile the source code of the project
+
+test - test the compiled source code using a suitable unit testing framework. These tests should 
+not require the code be packaged or deployed
+
+package - take the compiled code and package it in its distributable format, such as a JAR.
+
+verify - run any checks on results of integration tests to ensure quality criteria are met
+
+install - install the package into the local repository, for use as a dependency in other 
+projects locally
+
+deploy - done in the build environment, copies the final package to the remote repository for 
+sharing with other developers and projects.
+---------------------------------------------------------------------
+
+-------------- ESEMPIO DI UN PLUGIN ESTERNO ( ECHO PLUGIN )-----------------
+
+AGGIUGNERE AL POM ALL'INTERNO DEI TAG
+<build>
+	<plugins>
+
+	</plugins>
+</build>
+
+LA SEGUENTE PORZIONE DI CODICE
+
+	<plugin>
+		<groupId>com.soebes.maven.plugins</groupId>
+		<artifactId>echo-maven-plugin</artifactId>
+		<version>0.3.0</version>
+		<executions>
+			<execution>
+				<phase>validate</phase>
+				<goals>
+					<goal>echo</goal>
+				</goals>
+				<configuration>
+					<echos>
+						<echo>FASE VALIDATE SIAMO IN FASE VALIDATE</echo>
+					</echos>
+				</configuration>
+			</execution>
+		</executions>
+	</plugin>
+
+PHASE -> INDICA LA FASE DEL BUILD CYCLE IN CUI VERRA' ESEGUITO IL PLUGIN
+GOAL  -> INDICA IL GOAL DEL PLUGIN CHE VERRA USATO ( echo-plugin:echo )
+
+echo  -> LA FRASE CHE VERRA' SCRITTA...
+
+----------------  OUTPUT:
+
+mvn compile
+...
+[INFO] 
+[INFO] --- echo-maven-plugin:0.3.0:echo (default) @ maven.test ---
+[INFO] FASE VALIDATE SIAMO IN FASE VALIDATE
+[INFO] 
+[INFO] --- maven-resources-plugin:2.6:resources (default-resources) @ maven.test ---
+[WARNING] Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+[INFO] Copying 1 resource
+[INFO] 
+[INFO] --- maven-compiler-plugin:3.1:compile (default-compile) @ maven.test ---
+[INFO] Nothing to compile - all classes are up to date
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD SUCCESS
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time: 1.168 s
+[INFO] Finished at: 2018-04-21T13:17:58+02:00
+[INFO] Final Memory: 8M/150M
+[INFO] --------------------------------------------
+
+------------- MVN CLEAN
+
+PULISCE LA PRECENDENTE COMPILAZIONE: CANCELLA LA CARTELLA TARGET....
+
