@@ -81,6 +81,111 @@ git config user.name  "John Doe"
 git config user.email "johndoe@foobar.com"
 
 
+--------------- COMANDI UTILI ---------------------------
+
+------LOG > 
+	git log -p -2 
+		-p --> mostra le differenze introdotte in ogni log/commit (rispetto all'attuale)
+		-2 --> limita i log ad i 2 precedenti...
+
+	git log -S function_name
+		permette di trovare tutti i log in cui la frase(servono "") / parola function_name è stata aggiunta o rimossa..
+
+	--no-merges PERMETTE DI NON MOSTRARE I COMMIT RELATIVI AI MERGES...
+
+	$ git log --pretty=oneline
+		PERMETTE DI MOSTRARE I LOG SU UNA SOLA LINEA PIU' FACILE DA LEGGERE....
+
+-----UNDOING THINGS > 
+	SE SCORDI DI AGGIUNGERE UN FILE PUOI SOSTITUIRE L'ULTIMO COMMIT E RIFARLO MANTENENDO IL MESSAGGIO INVARIATO MA CAMBIANDO LA SOSTANZA CON 
+		git commit --amend
+	UN ESEMPIO DI UTILIZZO è IL SEGUENTE: 
+		$ git commit -m 'initial commit'	
+		$ git add forgotten_file
+ 		$ git commit --amend
+
+ 	IL COMANDO git status CI INSEGNA COME FARE DEI RESET E DEI RIPRISTINI...
+ 	PER ESEMPIO SE VOGLIAMO RIMUOVERE UN FILE DAI FILE CHE VERRANNO COMMITTATI ( ABBIAMO SBAGLIATO AD AGGIUNGERLO ALLA STAGING AREA CON git add . E VORREMMO TOGLIERLO DA LI) POSSIAMO FARLO CON IL COMANDO git reset 
+
+ 	ESEMPIO DI RIMOZIONE DEL FILE prova.txt DALLA STAGING AREA...
+ 	$ git status
+	On branch master
+	Your branch is up to date with 'origin/master'.
+
+	Changes to be committed:
+  	(use "git reset HEAD <file>..." to unstage)
+
+        new file:   prova.txt
+
+	$ git reset HEAD prova.txt				////////////////// 	REMOVE FROM STAGE 
+
+	ESEMPIO DI RIPRISTINO AL COMMIT PRECEDENTE DI UN FILE... CHE HO MODIFICATO MA VOGLIO RIPRISTINARE...
+	Changes not staged for commit:
+  	(use "git add <file>..." to update what will be committed)
+ 	 (use "git checkout -- <file>..." to discard changes in working directory)
+
+        modified:   prova.txt
+
+    $ git checkout -- prova.txt 			//////////////// RIPRISTINO  FILE 
+
+-------------- REMOTE REPOSITORY -----------------------------------------------------------
+
+VISUALIZZARE REPOSITORY REMOTI 
+
+$ git remote -v
+
+AGGIUNGERE REPOSITORY REMOTO
+
+$ git remote add <shortname> <url>
+
+INFORMAZIONI SU REPOSITORY REMOTO
+
+$  git remote show <remote>
+
+------------- TAGGARE REPOSITORY -------------------------------------------------------
+
+PER VISUALIZZARE I TAG DI UN REPO
+
+$ git tag
+
+TAG ANNOTATI...(SONO TAG CON MOLTE INFORMAZIONI COME EMAIL, USER, DATA, MESSAGGIO... + PESANTI MA PREFERIBILI..)
+
+$ git tag -a v1.4 -m "my version 1.4"
+
+PER LEGGERE LE INFO DEL TAG USARE
+
+$ git show v1.4
+
+
+TAG LIGHTWEIGHT... TAG LEGGERI NON CONTENGONO INFO SONO PREFERIBILI PER TAG PROVVISORI MOMENTANEI..
+
+$ git tag v1.4-lw 
+	(SI FANNO SENZA PARAMETRI )
+
+$ git show v1.4-lw
+
+TAGGARE SU COMMIT PRECEDENTE...
+
+$ git log --pretty=oneline CI MOSTRA TUTTI I COMMIT CON I RELATIVI CHECKSUM..
+	9fceb02d0ae598e95dc970b74767f19372d61af8 updated rakefile
+
+$ git tag -a v1.2 9fceb02 
+
+SHARING TAG...CONDIVIDERE I TAG
+
+DI DEFAULT IL PUSH NON PUSHA I TAG...COSI SE SI VOGLIONO CONDIVIDERE SI PUO' PROCEDERE CON IL COMANDO SEGUENTE:
+
+$ git push origin <tagname>
+
+OPPURE PER PUSHARE TUTTI I TAG
+
+$ git push origin --tags
+
+CREARE UN BRANCH A PARTIRE DA UN TAG...
+
+$ git checkout -b <newBranchName> <tagName>
+ESEMPIO: $ git checkout -b version2 v2.0.0
+
 --------------- ERRORI COMUNI: ---------------------------
 
 git: fatal: I don't handle protocol '​​http'
