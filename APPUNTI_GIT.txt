@@ -186,6 +186,17 @@ CREARE UN BRANCH A PARTIRE DA UN TAG...
 $ git checkout -b <newBranchName> <tagName>
 ESEMPIO: $ git checkout -b version2 v2.0.0
 
+
+-------------- CREARE ALIAS --------------------------
+
+$ git config [ --global ] alias.{nomeAlias} '{comando da espandere}'
+ESEMPIO:
+$ git config alias.oneline 'log --pretty=oneline'
+
+>>>>>> ALIAS COMUNI <<<<<<
+LAST -> $ git config --global alias.last 'log -1 HEAD'
+
+
 --------------- ERRORI COMUNI: ---------------------------
 
 git: fatal: I don't handle protocol '​​http'
