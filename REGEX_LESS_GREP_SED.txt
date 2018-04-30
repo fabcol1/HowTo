@@ -1,0 +1,69 @@
+-------------------- REGEX -----------------------------
+
+WORD BOUNDARY...
+	\bWORD\b
+	\<WORD\>
+
+^ -> (INIZIO) RIGHE CHE INIZIANO CON...
+$ -> FINE di una stringa o prima di \n o \r o \n\r....
+
+| -> OR
+(a|b) -> RAGGRUPPAMENTO
+
+? -> zero or one occurrences  
+* -> zero or more occurrences  
++ -> one or more occurrences
+
+{n} -> l'item che precede matcha esattamente n volte
+{min,} -> l'item che precede matcha minimo min volte o piu'
+{min, max} -> minimo min volte massimo max volte....
+
+. -> significa ogni carattere ( esempio a.b matcha abb, aab ahb .... )
+[a.b] -> significa a | . | b con il . letto letterale..
+
+[] -> Matches a single character that is contained within the brackets
+		casi particolari con - e ], [
+		
+[^ ] -> uguale a sopra ma negato..
+
+<<
+ Examples:
+	.at matches any three-character string ending with "at", including "hat", "cat", and "bat".
+	[hc]at matches "hat" and "cat".
+	[^b]at matches all strings matched by .at except "bat".
+	[^hc]at matches all strings matched by .at other than "hat" and "cat".
+	^[hc]at matches "hat" and "cat", but only at the beginning of the string or line.
+	[hc]at$ matches "hat" and "cat", but only at the end of the string or line.
+	\[.\] matches any single character surrounded by "[" and "]" since the brackets are escaped, for example: "[a]" and "[b]".
+	s.* matches s followed by zero or more characters, for example: "s" and "saw" and "seed".
+>>
+
+---------------------------------------- LESS -------------------------------------------------------- 
+	TROVARE RIGHE CHE INIZIANO CON UNA DATA REGEX ... ESEMPIO LE LINEE CHE INZIATO CON '0,' 
+	SI PUO OTTENERE CON ^
+	
+	less file.txt
+	/^0,
+
+PER SCORRERE:
+	n
+	shift + n 
+
+	
+----------------------------------------- GREP ----------------------------------------------------------
+OPPURE CON GREP SI PUO' LEGGERE DIRETTAMENTE L'OUTPUT..
+
+	grep '^0,' file.txt
+	
+
+------------------------------------------- SED -------------------------------------------------------- 
+
+most common usage: s -> substitute g -> global :
+	sed 's/regexp/replacement/g' inputFileName > outputFileName
+	
+SENZA SPECIFICARE outputFileName STAMPERA' IN CONSOLE IL RISULTATO (STANDARD OUTPUT)
+SENZA ALTERARE I FILE...
+
+SENZA SPECIFICARE inputFileName PRENDERA' L'INPUT DIRETTAMENTE DALLO STANDARD INPUT
+
+
