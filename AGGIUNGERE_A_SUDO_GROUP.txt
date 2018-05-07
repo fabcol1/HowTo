@@ -1,0 +1,21 @@
+######## AGGIUNGERE A SUDO GROUP #################################
+
+SE DEBIAN IL GRUPPO SUDO è sudo
+SE ARCH IL GRUPPO SUDO è wheel
+
+IN OGNI CASO DIGITARE DOPO ESSERE DIVENTATI ROOT CON 
+
+$ su -
+
+# usermod -aG sudo nomeUtente  ----------> APPENDI sudo COME GRUPPO SECONDARIO ALL'UTENTE nomeUtente
+
+SE SEI SU ARCH AL POSTO DI sudo SCRIVI wheel
+
+DOPO DI CHE VERIFICA CHE NEL FILE visudo VI SIA QUESTA LINEA NON COMMENTATA:
+
+# Allow members of group sudo to execute any command
+%sudo 		ALL=(ALL:ALL) ALL
+
+( O CON wheel PER SISTEMI DIVERSI DA DEBIAN.... )
+
+INFINE RIAVVIARE IL SISTEMA...
