@@ -1,0 +1,30 @@
+######### CHECK VMWARE TOOLS #######################
+
+$ systemctl status vmware-tools
+
+#### ALTRI COMANDI SIMPATICI ####
+
+$ hostnamectl
+
+   Static hostname: Clone
+         Icon name: computer-vm
+           Chassis: vm
+        Machine ID: 678b4c82065c4895903add3773e68e82
+           Boot ID: cc0f143b332748abbba588160611224f
+    Virtualization: vmware
+  Operating System: Debian GNU/Linux 9 (stretch)
+            Kernel: Linux 4.9.0-6-amd64
+      Architecture: x86-64
+
+
+$ cat /etc/os-release
+
+PRETTY_NAME="Debian GNU/Linux 9 (stretch)"
+NAME="Debian GNU/Linux"
+VERSION_ID="9"
+VERSION="9 (stretch)"
+ID=debian
+HOME_URL="https://www.debian.org/"
+SUPPORT_URL="https://www.debian.org/support"
+BUG_REPORT_URL="https://bugs.debian.org/"
+
