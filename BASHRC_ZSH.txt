@@ -1,0 +1,58 @@
+#################### HOW TO CHECK SHELLS AND INSTALL ZSH WITH COOL THEME agnoster #################
+
+CHECK WHICH SHELL I'M USING: 
+
+$ echo $0
+
+SHELLS FULL PATH:
+
+type -a bash
+type -a zsh
+...
+
+CHANGE SHELL :
+
+chsh -s {shell-name-here}
+chsh -s {shell-name-here} {user-name-here}
+
+################################################
+
+INSTALL ZSH WITH OH MY ZSH THEMES ####
+
+1. INSTALL ZSH 
+	apt-get install zsh
+
+2. INSTALL curl AND DOWNLOAD oh-my-zsh
+
+		apt-get install curl
+
+	browser -> http://ohmyz.sh/ 
+
+		$ sh -c "$(curl -fsSL https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
+
+		sh -c --> USE ZSH AND TAKE THE FIRST ARGUMENT AS A COMMAND...
+
+3. ENABLE THE THEME THAT YOU LIKE MORE FROM GITHUB THEMES LIST..
+	
+	https://github.com/robbyrussell/oh-my-zsh/wiki/Themes
+
+	nano .zshrc
+
+	ZSH_THEME="agnoster" 
+
+4. INSTALL Powerline fonts ( OR HACKS font )
+	
+	https://github.com/powerline/fonts
+
+	sudo apt-get install fonts-powerline
+
+
+##### OTHERS ##################################
+
+To find the PID of the current instance of shell:
+
+echo "$$"
+
+Now to find the process having the PID:
+
+ps -p <PID>
