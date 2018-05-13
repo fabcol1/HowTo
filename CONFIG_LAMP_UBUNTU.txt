@@ -1,0 +1,69 @@
+CONFIGURAZIONE STACK LAMP MACCHINA UBUNTU #################
+
+sudo apt-get install apache2 mysql-server php7.2 php-mysql mysql-workbench mysql-client
+
+sudo apt-get install mc ( editor di testo console )
+
+CHECK APACHE, MYSQL IS ON ############################
+
+systemctl status mysql.service
+systemctl status apache2.service
+
+RESTART APACHE #######################################
+
+systemctl restart apache2.service
+
+CONFIGURAZIONE VIRTUAL HOST APACHE #####################
+
+creare directory progetto: mkdir -p /home/yoda/Scrivania/workspace/esempio1
+
+copiare file in /etc/apache2/sites-available: sudo cp /etc/apache2/sites-available/000-default.conf myexamples01.conf 
+	il file deve contenere:
+	
+	<VirtualHost *:80>
+		ServerAdmin webmaster@myexamples01.local
+		ServerName myexamples01.local
+		ServerAlias www.myexamples01.local
+		DocumentRoot /var/www/html/myexamples01
+	</VirtualHost>
+	 
+sostituire il link simbolico in /etc/apache2/sites-enables/ e farlo puntare al file appena creato...
+
+aggiungere a /etc/hosts : 127.0.0.1 myexamples01.local
+
+link simbolico del nostro progetto (/home/yoda/Scrivania/workspace/esempio1) sotto /var/www/html/myexamples01 ( DocumentRoot ) 
+
+############## CONFIGURARE MYSQL ROOT ########################
+
+	Open & Edit /etc/mysql/my.cnf
+	Add skip-grant-tables under [mysqld]
+	    #   The files must end with '.cnf', otherwise they'll be ignored.
+	    #
+	    [mysqld]
+	    skip-grant-tables
+
+	Restart Mysql
+	    
+	You should be able to login to mysql now using the below command mysql -u root -p
+	Run mysql> flush privileges;
+
+	Set new password 
+	UPDATE mysql.user SET authentication_string=PASSWORD('password'), plugin='mysql_native_password' WHERE User='root';
+	flush privileges;
+
+	Go back to /etc/my.cnf and remove/comment skip-grant-tables
+	Restart Mysql
+	Now you will be able to login with the new password mysql -u root -p
+
+########## NUOVO DB + NUOVO UTENTE #############################
+
+	CREATE DATABASE testdb;
+	USE testdb;
+	CREATE USER 'test'@'%' IDENTIFIED BY 'test';
+	GRANT ALL PRIVILEGES ON testdb.* TO 'test'@'%';
+	FLUSH PRIVILEGES;
+
+############## FARE DUMP DB MYSQL ##############
+	mysqldump -u root -p --databases testdb > testdb.dump
+	COME RIPRISTINARE DA DUMP ??? 
+	mysql -u root -p < testdb.dump

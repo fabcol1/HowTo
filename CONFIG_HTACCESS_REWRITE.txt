@@ -1,0 +1,35 @@
+############# ABILITARE REWRITE IN FILE .htaccess #############################à
+
+1. ABILITARE FILE .htaccess ALL'INTERNO DEL FILE DI CONF PRINCIPALE apache2.CONF
+
+    <Directory /var/www/>
+        Options FollowSymLinks
+        AllowOverride All
+            oppure:
+    #	AllowOverride AuthConfig
+        Require all granted
+    </Directory>
+
+2. CREARE IL FILE .htaccess NELLA DIRECTORY DOVE SI VUOLE CHE SIA ESEGUITO... (N.B. VIENE EREDITATO DA SOTTODIR)
+.htaccess
+    #AuthType Basic
+    #AuthName "Restricted web page"
+    #AuthUserFile /etc/apache2/htpasswd/.htpasswd
+    #require valid-user
+
+    RewriteEngine On   
+    #RewriteBase /
+    RewriteRule ^prova/?$ prova-2018-05-11.php [NC,L] 
+
+CREARE IL FILE .htpasswd E IMPOSTARE UNA PASSWORD PER L'UTENTE CON I PERMESSI (IL FILE VA CREATO DOVE SPECIFICATO NEL .htaccess)
+MIO ESEMPIO : #AuthUserFile /etc/apache2/htpasswd/.htpasswd
+
+SI CREA SPOSTANDOSI NELLA DIRECTORY CON IL COMANDO: 
+     htpasswd -c .htpasswd nomeUtente
+
+3. ABILITARE IL MODULO rewrite DI APACHE E RESTARTARE IL WEB SERVER...
+
+    sudo a2enmod rewrite
+    sudo systemctl restart apache2.service
+
+
